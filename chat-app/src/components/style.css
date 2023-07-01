@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap");
+body {
+  font-family: "Rubik", sans-serif;
+  background-size: cover;
+  background-color: #8e44ad;
+  background-image: linear-gradient(to bottom right, #8e44ad, #c0392b);
+  height: 100vh;
+  overflow-y: hidden;
+}
+h1 {
+  color: orange;
+  font-size: 50px;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.container-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 30px;
+}
+.sign-in-btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: black;
+  color: white;
+  border-color: white;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 3;
+  border: none;
+}
+
+.sign-in-btn:hover {
+  background-color: orange;
+}
+.sign-out-btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: black;
+  color: white;
+  border-color: white;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 3;
+  margin-top: 10px;
+  border: none;
+}
+.sign-out-btn:hover {
+  background-color: orange;
+}
+.btn-div {
+  display: flex;
+  justify-content: center;
+}
+.sign-in-text {
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+}
+.room-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25%;
+}
+.room-container label {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+input {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 2px solid orange;
+  background: none;
+  color: orange;
+}
+input:focus {
+  outline: none;
+}
+input::placeholder {
+  color: #ffa60091; /* Set the desired placeholder color */
+}
+.sign-out-btn-div {
+  display: flex;
+  justify-content: center;
+}
+.send-btn {
+  font-size: 20px;
+  border-radius: 5px;
+  background-color: orange;
+  color: black;
+  margin-left: 10px;
+  border: none;
+  padding: 3px 7px;
+}
+.send-btn:hover {
+  cursor: pointer;
+}
+.messages-container {
+  background: linear-gradient(135deg, #ffa500, #ff440079);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.messages {
+}
+.single-message {
+  display: flex;
+  margin-left: 10px;
+}
+.message {
+  font-weight: 300;
+  word-wrap: break-word;
+  padding: 5px 10px;
+}
+.user {
+  font-weight: 600;
+  margin-right: 5px;
+}
+@media (max-width: 768px) {
+  h1 {
+    margin-top: 10rem;
+    font-size: 30px;
+  }
+  .messages {
+    max-height: 300px;
+  }
+  .room-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .sign-out-btn {
+    margin-top: 60px;
+  }
+  .sign-in-text {
+    font-size: 28px;
+  }
+}
