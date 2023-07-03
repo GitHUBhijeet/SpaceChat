@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   addDoc,
   collection,
@@ -16,6 +16,7 @@ const Chat = (props) => {
   const [messages, setMessages] = useState([]);
 
   const messagesRef = collection(db, "messages");
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const queryMessages = query(
@@ -32,6 +33,20 @@ const Chat = (props) => {
     });
     return () => unsubscribe();
   }, []);
+  useEffect(() => {
+    // Scroll to the bottom of the container on initial render and whenever the messages update
+    scrollToBottom();
+  }, []);
+  useEffect(() => {
+    // Scroll to the bottom whenever new messages are added
+    scrollToBottom();
+  }, [messages]);
+
+  const scrollToBottom = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,41 +62,17 @@ const Chat = (props) => {
   };
 
   return (
-    // <div className="container-2">
-    //   <div>
-    //     <h1>Welcome to: {room.toUpperCase()}</h1>
-    //   </div>
-    //   <div className="messages-container">
-    //     <div className="messages">
-    //       {messages.map((message) => (
-    //         <div className="single-message">
-    //           <div className="message" key={message.id}>
-    //             <span className="user">{message.user}:</span>
-    //             {message.text}
-    //           </div>
-    //         </div>
-    //       ))}
-    //     </div>
-    //   </div>
-    //   <form onSubmit={handleSubmit} className="new-message-form">
-    //     <input
-    //       className="new-message-input"
-    //       placeholder="Type message..."
-    //       onChange={(e) => setNewMessage(e.target.value)}
-    //       value={newMessage}
-    //     />
-    //     <button className="send-btn" type="submit">
-    //       Send
-    //     </button>
-    //   </form>
-    // </div>
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       <div>
-        <h1>Welcome to: {room.toUpperCase()}</h1>
+        <h1>Welcome to: {room}</h1>
       </div>
-      <div className="messages-container" style={{ maxWidth: "300px" }}>
+      <div
+        ref={containerRef}
+        className="messages-container"
+        style={{ maxWidth: "300px" }}
+      >
         <div className="">
           {messages.map((message) => (
             <div className="" key={message.id}>

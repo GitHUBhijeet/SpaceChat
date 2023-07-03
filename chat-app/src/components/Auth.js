@@ -19,6 +19,11 @@ const Auth = (props) => {
   return (
     <div className="auth container">
       <h1>SpaceChat</h1>
+      <p>
+        <u>To see this app in action:</u> <br /> <br />
+        1. Open this app in 2 different tabs. <br /> 2. Sign in with 2 different
+        accounts. <br /> 3. Join a room with any name of your choice.
+      </p>
       <p className="sign-in-text">Sign in with Google to continue...</p>
       <div className="btn-div">
         <button className="sign-in-btn" onClick={signInwithGoogle}>

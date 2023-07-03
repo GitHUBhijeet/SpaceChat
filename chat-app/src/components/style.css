@@ -151,3 +151,14 @@ input::placeholder {
     font-size: 28px;
   }
 }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ffa500;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 3px;
+}
